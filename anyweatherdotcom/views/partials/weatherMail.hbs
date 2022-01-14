@@ -1,0 +1,38 @@
+    {{#if isVisibleMail}}
+    <div class="block_info glob">
+        <div class="row">
+            <div class="col-sm" style="font-size: 20px;padding-bottom: 10px;">
+                    <div>{{tempMailNow}} °C</div>
+                    {{!-- <img src="thermometer.svg" alt=""> --}}
+                    <div class="type">{{typeMailNow}}</div>
+            </div>
+            <div class="col-sm block_info_pr">
+                    <div class="row">
+                        <div class="col-sm">
+                                <div>Wind: {{windMailNow}} м/c</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                                <div>Humidity: {{humidityMailNow}}%</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                                <div>Pressure: {{pressureMailNow}}мм рт.ст</div>
+                        </div>
+                    </div>
+            </div>
+            
+        </div>
+    </div>
+    {{else}}
+    <div class="row">
+        <div class="col-sm">
+            <div class="block_info">
+                {{!-- <img src="thermometer.svg" alt=""> --}}
+                <div style="font-size: 2vw;">{{typeMailNow}}</div>
+            </div>
+        </div>
+    </div>
+    {{/if}}   
