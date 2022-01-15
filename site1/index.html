@@ -12,7 +12,7 @@
     <form
         id="app"
         @submit="checkForm"
-        action=""
+        action="action_page.html"
         method="post"
 
     >
@@ -128,13 +128,6 @@
     </p>
 
     <p>
-        <input
-            type="submit"
-            value="Отправить"
-        >
-    </p>
-
-    <p>
         <input 
             type="checkbox" 
             id="outgoing_sms_bool" 
@@ -176,7 +169,7 @@
             oninput="this.value=this.value.replace(/[^а-яА-Яa-zA-Z]/g,'')"
             placeholder="Челябинская область">
             <datalist id="regions">
-                <option v-for="region in regions">{{region}}</option>
+                <tr v-for="region in regions">{{region}}</tr>
             </datalist>
 
     </p>
@@ -254,8 +247,9 @@
             name="dateOfIssue"
         >
     </p>
-
-
+    <p>
+        <input type="submit" value="Отправить">
+    </p>
 
     
 

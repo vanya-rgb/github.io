@@ -22,7 +22,7 @@ const app = new Vue({
       birthday_date: null,
       picked: null,
       phone: null,
-      castomer_type: null,
+      castomer_type: [],
       therapist: null,
       outgoing_sms_bool: false,
       region: '',
@@ -32,7 +32,8 @@ const app = new Vue({
         "Республика Адыгея",
       ],
       city: '',
-      dateOfIssue: ''
+      dateOfIssue: '',
+      document_type: null,
     },
     methods: {
       checkForm: function (e) {
@@ -62,6 +63,10 @@ const app = new Vue({
         }
         if (!this.dateOfIssue) {
           this.errors.push('Введите дату выдачи.');
+        }
+
+        if (!this.errors.length) {
+          return true;
         }
   
         e.preventDefault();
