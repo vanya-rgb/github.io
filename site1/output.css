@@ -3,6 +3,10 @@ body {
   color: #333;
   font: 100% Helvetica, sans-serif;
   background: linear-gradient(#ffffff, #63e1e7);
+  background-position: center;
+  overflow: auto;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 label {float: left;}

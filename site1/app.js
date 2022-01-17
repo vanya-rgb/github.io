@@ -61,12 +61,14 @@ const app = new Vue({
         }
 
         if (!this.errors.length) {
+          alert('Форма успешно отправлена!')
           return true;
         }
   
         e.preventDefault();
       },
     },
+    
 
   })
 
