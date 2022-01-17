@@ -7,10 +7,13 @@ const info = document.querySelector('.js_info')
 const heading = document.querySelector('.js_head')
 const tileContainer = document.querySelector('.simon')
 const finalMessage = document.querySelector('.reset_game')
+const options = document.querySelector('.game-options')
 
 function startGame() {
     startButton.classList.add('hide')
     info.classList.remove('hide')
+    options.classList.add('hide')
+
     nexRound()
 }
 
@@ -51,10 +54,21 @@ function activateTile(color) {
 }
 
 function playRound(nextSequence) {
+    const level = check()
+
+    let time = {
+        value: 1500
+    }
+    if (level == 'hard') {
+        time.value = 400
+    }
+    if (level == 'try-better'){
+        time.value = 1000
+    }
     nextSequence.forEach((color, index) => {
         setTimeout(() => {
             activateTile(color)
-        }, (index + 1) * 600)
+        }, (index + 1) * time.value)
     });
 }
 //human turn
@@ -87,6 +101,18 @@ function handleClick(tile) {
     }`
 }
 
+//difficalt level
+function check()
+{
+    var inp = document.getElementsByName('mode');
+    for (var i = 0; i < inp.length; i++) {
+        if (inp[i].type == "radio" && inp[i].checked) {
+            console.log(inp[i].value)
+            return inp[i].value
+        }
+    }
+}
+
 //reset game
 function resetGame(text) {
     sequence = []
@@ -95,6 +121,7 @@ function resetGame(text) {
     finalMessage.classList.remove('hide')
     startButton.classList.remove('hide')
     heading.textContent = 'Game Over'
+    options.classList.remove('hide')
     info.classList.add('hide')
     tileContainer.classList.add('unclickable')
 }
