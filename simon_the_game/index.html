@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name=viewport content="width=device-width, initial-scale=1">
+	<title>Simon Says</title>
+	<link rel="stylesheet" href="output.css" />
+</head>
+<body>
+	<div class="wrapper">
+		<h1 class="js_head">Simon Says</h1>
+			<div class="game-board">
+				<div class="simon unclickable">
+					<ul>
+						<li class="tile red" data-tile="red"></li>
+						<li class="tile blue" data-tile="blue"></li>
+						<li class="tile yellow" data-tile="yellow"></li>
+						<li class="tile green" data-tile="green"></li>
+					</ul>
+				</div>
+			</div>
+			<div class="game-info">
+				<h2 class="reset_game hide"></h2>
+				<button data-action="start" class="js_start">Start</button>
+				<div class="js_info hide">Wait for the computer...</div>
+				<!-- <p data-action="lose">Sorry, you lost after <span data-round="0"></span> rounds!</p> -->
+			</div>
+			<div class="game-options">
+				<h2>Level:</h2>
+				<input type="radio" name="mode" value="normal" checked>Easy<br>
+				<input type="radio" name="mode" value="try-better">Try better<br>
+				<input type="radio" name="mode" value="hard">Hard
+			</div>
+		<div class="hide">
+			<audio src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3" data-sound="red" ></audio>
+			<audio src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3" data-sound="green" ></audio>
+			<audio src="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3" data-sound="blue" ></audio>
+			<audio src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3" data-sound="yellow" ></audio>
+		</div>
+	</div>
+	
+</body>
+<script src="index.js"></script>
+</html>
