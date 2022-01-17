@@ -3,7 +3,6 @@ let humanSequence = []
 let level = 0
 
 const startButton = document.querySelector('.js_start')
-const endButton = document.querySelector('.js_end')
 const info = document.querySelector('.js_info')
 const heading = document.querySelector('.js_head')
 const tileContainer = document.querySelector('.simon')
@@ -15,7 +14,6 @@ function startGame() {
 
     startButton.classList.add('hide')
     info.classList.remove('hide')
-    endButton.classList.remove('hide')
     options.classList.add('hide')
 
     nexRound()
@@ -124,7 +122,6 @@ function resetGame(text) {
     level = 0
     finalMessage.classList.remove('hide')
     startButton.classList.remove('hide')
-    endButton.classList.add('hide')
     heading.textContent = 'Game Over'
     options.classList.remove('hide')
     info.classList.add('hide')
@@ -132,7 +129,6 @@ function resetGame(text) {
 }
 
 startButton.addEventListener('click', startGame)
-endButton.addEventListener('click', resetGame)
 tileContainer.addEventListener('click', event => {
     const {tile} = event.target.dataset
 
