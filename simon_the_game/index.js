@@ -3,15 +3,19 @@ let humanSequence = []
 let level = 0
 
 const startButton = document.querySelector('.js_start')
+const endButton = document.querySelector('.js_end')
 const info = document.querySelector('.js_info')
 const heading = document.querySelector('.js_head')
 const tileContainer = document.querySelector('.simon')
 const finalMessage = document.querySelector('.reset_game')
 const options = document.querySelector('.game-options')
 
+
 function startGame() {
+
     startButton.classList.add('hide')
     info.classList.remove('hide')
+    endButton.classList.remove('hide')
     options.classList.add('hide')
 
     nexRound()
@@ -19,19 +23,30 @@ function startGame() {
 
 function nexRound() {
     level +=1
-
+    
+    const difLevel = check()
+    let time = {
+        value: 1500
+    }
+    if (difLevel == 'hard') {
+        time.value = 400
+    }
+    if (difLevel == 'try-better'){
+        time.value = 1000
+    }
+    var gameTime = time.value
     tileContainer.classList.add('unclickable')
     info.textContent = 'Wait for the computer'
     heading.textContent = `Level ${level}`
 
     const nextSequence = [...sequence]
     nextSequence.push(nextStep())
-    playRound(nextSequence)
+    playRound(nextSequence, gameTime)
 
     sequence = [...nextSequence]
     setTimeout(() => {
         humanTurn(level)
-    }, level * 600 + 1000)
+    }, level * gameTime + 1000)
 }
 
 function nextStep() {
@@ -53,22 +68,12 @@ function activateTile(color) {
     }, 300)
 }
 
-function playRound(nextSequence) {
-    const level = check()
-
-    let time = {
-        value: 1500
-    }
-    if (level == 'hard') {
-        time.value = 400
-    }
-    if (level == 'try-better'){
-        time.value = 1000
-    }
+function playRound(nextSequence, gameTime) {
+    
     nextSequence.forEach((color, index) => {
         setTimeout(() => {
             activateTile(color)
-        }, (index + 1) * time.value)
+        }, (index + 1) * gameTime)
     });
 }
 //human turn
@@ -107,7 +112,6 @@ function check()
     var inp = document.getElementsByName('mode');
     for (var i = 0; i < inp.length; i++) {
         if (inp[i].type == "radio" && inp[i].checked) {
-            console.log(inp[i].value)
             return inp[i].value
         }
     }
@@ -120,6 +124,7 @@ function resetGame(text) {
     level = 0
     finalMessage.classList.remove('hide')
     startButton.classList.remove('hide')
+    endButton.classList.add('hide')
     heading.textContent = 'Game Over'
     options.classList.remove('hide')
     info.classList.add('hide')
@@ -127,6 +132,7 @@ function resetGame(text) {
 }
 
 startButton.addEventListener('click', startGame)
+endButton.addEventListener('click', resetGame)
 tileContainer.addEventListener('click', event => {
     const {tile} = event.target.dataset
 

@@ -17,17 +17,8 @@ ul, li {
 	margin: 0;
 }
 
-p[data-action="lose"] {
-	display: none;
-}
-
 .active {
 	opacity: 1 !important;
-}
-
-.clearfix {
-	width: 100%;
-	clear: both;
 }
 
 .wrapper {
@@ -125,3 +116,8 @@ p[data-action="lose"] {
 .unclickable {
 	pointer-events: none;
   }
+
+.js_info {
+	font-size: 1.2em;
+	margin-bottom: 2em;
+}
