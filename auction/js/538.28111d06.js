@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkauction_app"]=self["webpackChunkauction_app"]||[]).push([[538],{2392:function(n,e,t){t.r(e),t.d(e,{default:function(){return s}});var u=t(3396);const r=(0,u._)("div",{class:"card"},[(0,u._)("p",null,"Well dude, if you forgot, it's time to remember")],-1),a=[r];function c(n,e,t,r,c,i){return(0,u.wg)(),(0,u.iD)("div",null,a)}var i={},o=t(89);const l=(0,o.Z)(i,[["render",c]]);var s=l}}]);
+//# sourceMappingURL=538.28111d06.js.map
